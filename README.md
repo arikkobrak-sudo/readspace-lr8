@@ -17,7 +17,7 @@ HTML5, CSS3 (Tailwind CSS), JavaScript.
 ## Демо
 
 - GitHub Pages: https://arikkobrak-sudo.github.io/readspace-lr8/
-- Netlify: https://jade-panda-d4a0d7.netlify.app/
+- Netlify: https://readspace-kobrak-lr8.netlify.app/
 
 ## Автор
 
