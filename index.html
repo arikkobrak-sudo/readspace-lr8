@@ -1,0 +1,922 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ReadSpace — читай у власному ритмі</title>
+    <meta
+      name="description"
+      content="Веди читацький прогрес, створюй особисті полиці та знаходь наступну книгу за настроєм із ReadSpace Matcher."
+    />
+    <link rel="icon" href="assets/images/logo-mark.svg" type="image/svg+xml" />
+    <!-- Шрифт Inter (self-hosted, variable): без запитів до Google Fonts -->
+    <link rel="preload" href="assets/fonts/inter-cyrillic-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
+    <!-- Tailwind CSS: зібрано CLI (tailwind_build) і вбудовано inline, щоб CSS не блокував рендер -->
+    <style>@font-face{font-family:Inter;font-style:normal;font-display:swap;font-weight:100 900;src:url(assets/fonts/inter-cyrillic-wght-normal.woff2) format("woff2-variations");unicode-range:u+0301,u+0400-045f,u+0490-0491,u+04b0-04b1,u+2116}@font-face{font-family:Inter;font-style:normal;font-display:swap;font-weight:100 900;src:url(assets/fonts/inter-latin-wght-normal.woff2) format("woff2-variations");unicode-range:u+00??,u+0131,u+0152-0153,u+02bb-02bc,u+02c6,u+02da,u+02dc,u+0304,u+0308,u+0329,u+2000-206f,u+20ac,u+2122,u+2191,u+2193,u+2212,u+2215,u+feff,u+fffd}*,:after,:before{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }
+
+/*! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com*/*,:after,:before{box-sizing:border-box;border:0 solid #e5e7eb}:after,:before{--tw-content:""}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;-o-tab-size:4;tab-size:4;font-family:Inter,system-ui,sans-serif;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0}fieldset,legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::-moz-placeholder,textarea::-moz-placeholder{opacity:1;color:#9ca3af}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.sticky{position:sticky}.inset-0{inset:0}.left-4{left:1rem}.top-0{top:0}.top-4{top:1rem}.isolate{isolation:isolate}.-z-10{z-index:-10}.z-40{z-index:40}.z-50{z-index:50}.mx-auto{margin-left:auto;margin-right:auto}.mb-2{margin-bottom:.5rem}.mb-3{margin-bottom:.75rem}.mb-5{margin-bottom:1.25rem}.mt-10{margin-top:2.5rem}.mt-2{margin-top:.5rem}.mt-3{margin-top:.75rem}.mt-4{margin-top:1rem}.mt-5{margin-top:1.25rem}.mt-6{margin-top:1.5rem}.mt-7{margin-top:1.75rem}.mt-8{margin-top:2rem}.block{display:block}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.hidden{display:none}.aspect-square{aspect-ratio:1/1}.aspect-video{aspect-ratio:16/9}.size-10{width:2.5rem;height:2.5rem}.size-11{width:2.75rem;height:2.75rem}.size-12{width:3rem;height:3rem}.size-14{width:3.5rem;height:3.5rem}.size-6{width:1.5rem;height:1.5rem}.size-8{width:2rem;height:2rem}.size-full{width:100%;height:100%}.h-14{height:3.5rem}.h-full{height:100%}.min-h-10{min-height:2.5rem}.min-h-11{min-height:2.75rem}.min-h-12{min-height:3rem}.w-20{width:5rem}.w-32{width:8rem}.w-full{width:100%}.max-w-2xl{max-width:42rem}.max-w-3xl{max-width:48rem}.max-w-5xl{max-width:64rem}.max-w-7xl{max-width:80rem}.cursor-pointer{cursor:pointer}.grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-start{align-items:flex-start}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-1{gap:.25rem}.gap-2{gap:.5rem}.gap-3{gap:.75rem}.gap-5{gap:1.25rem}.gap-6{gap:1.5rem}.gap-8{gap:2rem}.gap-x-6{-moz-column-gap:1.5rem;column-gap:1.5rem}.space-y-7>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.75rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.75rem*var(--tw-space-y-reverse))}.self-start{align-self:flex-start}.overflow-hidden{overflow:hidden}.rounded-card{border-radius:12px}.rounded-full{border-radius:9999px}.rounded-xl2{border-radius:20px}.border{border-width:1px}.border-0{border-width:0}.border-2{border-width:2px}.border-b{border-bottom-width:1px}.border-t{border-top-width:1px}.border-cream{--tw-border-opacity:1;border-color:rgb(250 246 238/var(--tw-border-opacity,1))}.border-cream\/20{border-color:hsla(40,55%,96%,.2)}.border-line{--tw-border-opacity:1;border-color:rgb(217 210 195/var(--tw-border-opacity,1))}.bg-accent{--tw-bg-opacity:1;background-color:rgb(232 163 61/var(--tw-bg-opacity,1))}.bg-accent-subtle{--tw-bg-opacity:1;background-color:rgb(251 239 217/var(--tw-bg-opacity,1))}.bg-brand{--tw-bg-opacity:1;background-color:rgb(46 58 107/var(--tw-bg-opacity,1))}.bg-brand\/90{background-color:rgba(46,58,107,.9)}.bg-cream{--tw-bg-opacity:1;background-color:rgb(250 246 238/var(--tw-bg-opacity,1))}.bg-graphite\/30{background-color:rgba(43,43,48,.3)}.bg-graphite\/65{background-color:rgba(43,43,48,.65)}.bg-red-600{--tw-bg-opacity:1;background-color:rgb(220 38 38/var(--tw-bg-opacity,1))}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255/var(--tw-bg-opacity,1))}.object-cover{-o-object-fit:cover;object-fit:cover}.p-1{padding:.25rem}.p-5{padding:1.25rem}.p-6{padding:1.5rem}.px-3{padding-left:.75rem;padding-right:.75rem}.px-4{padding-left:1rem;padding-right:1rem}.px-5{padding-left:1.25rem;padding-right:1.25rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.py-12{padding-top:3rem;padding-bottom:3rem}.py-16{padding-top:4rem;padding-bottom:4rem}.py-2{padding-top:.5rem;padding-bottom:.5rem}.py-3{padding-top:.75rem}.pb-3,.py-3{padding-bottom:.75rem}.pt-6{padding-top:1.5rem}.text-center{text-align:center}.font-sans{font-family:Inter,system-ui,sans-serif}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.font-bold{font-weight:700}.font-extrabold{font-weight:800}.font-medium{font-weight:500}.font-semibold{font-weight:600}.uppercase{text-transform:uppercase}.not-italic{font-style:normal}.leading-relaxed{line-height:1.625}.leading-tight{line-height:1.25}.tracking-wider{letter-spacing:.05em}.text-accent{--tw-text-opacity:1;color:rgb(232 163 61/var(--tw-text-opacity,1))}.text-brand{--tw-text-opacity:1;color:rgb(46 58 107/var(--tw-text-opacity,1))}.text-cream{--tw-text-opacity:1;color:rgb(250 246 238/var(--tw-text-opacity,1))}.text-cream\/70{color:hsla(40,55%,96%,.7)}.text-cream\/80{color:hsla(40,55%,96%,.8)}.text-graphite{--tw-text-opacity:1;color:rgb(43 43 48/var(--tw-text-opacity,1))}.text-muted{--tw-text-opacity:1;color:rgb(91 91 102/var(--tw-text-opacity,1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity,1))}.text-white\/80{color:hsla(0,0%,100%,.8)}.text-white\/90{color:hsla(0,0%,100%,.9)}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.shadow-lg{--tw-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -4px rgba(0,0,0,.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color),0 4px 6px -4px var(--tw-shadow-color)}.shadow-lg,.shadow-sm{box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.shadow-sm{--tw-shadow:0 1px 2px 0 rgba(0,0,0,.05);--tw-shadow-colored:0 1px 2px 0 var(--tw-shadow-color)}.shadow-xl{--tw-shadow:0 20px 25px -5px rgba(0,0,0,.1),0 8px 10px -6px rgba(0,0,0,.1);--tw-shadow-colored:0 20px 25px -5px var(--tw-shadow-color),0 8px 10px -6px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.backdrop-blur{--tw-backdrop-blur:blur(8px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,-webkit-backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter,-webkit-backdrop-filter;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.duration-200{transition-duration:.2s}.icon{width:1em;height:1em;fill:currentColor;flex-shrink:0}.focus-within\:ring-2:focus-within{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow,0 0 #0000)}.focus-within\:ring-brand:focus-within{--tw-ring-opacity:1;--tw-ring-color:rgb(46 58 107/var(--tw-ring-opacity,1))}.hover\:-translate-y-1:hover{--tw-translate-y:-0.25rem;transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.hover\:bg-accent-hover:hover{--tw-bg-opacity:1;background-color:rgb(217 146 43/var(--tw-bg-opacity,1))}.hover\:bg-brand-hover:hover{--tw-bg-opacity:1;background-color:rgb(36 48 88/var(--tw-bg-opacity,1))}.hover\:bg-cream:hover{--tw-bg-opacity:1;background-color:rgb(250 246 238/var(--tw-bg-opacity,1))}.hover\:text-accent:hover{--tw-text-opacity:1;color:rgb(232 163 61/var(--tw-text-opacity,1))}.hover\:text-brand:hover{--tw-text-opacity:1;color:rgb(46 58 107/var(--tw-text-opacity,1))}.hover\:text-graphite:hover{--tw-text-opacity:1;color:rgb(43 43 48/var(--tw-text-opacity,1))}.hover\:shadow-lg:hover{--tw-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -4px rgba(0,0,0,.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color),0 4px 6px -4px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.focus\:not-sr-only:focus{position:static;width:auto;height:auto;padding:0;margin:0;overflow:visible;clip:auto;white-space:normal}.focus-visible\:outline-none:focus-visible{outline:2px solid transparent;outline-offset:2px}.focus-visible\:ring-2:focus-visible{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow,0 0 #0000)}.focus-visible\:ring-4:focus-visible{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(4px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow,0 0 #0000)}.focus-visible\:ring-inset:focus-visible{--tw-ring-inset:inset}.focus-visible\:ring-accent:focus-visible{--tw-ring-opacity:1;--tw-ring-color:rgb(232 163 61/var(--tw-ring-opacity,1))}.focus-visible\:ring-brand:focus-visible{--tw-ring-opacity:1;--tw-ring-color:rgb(46 58 107/var(--tw-ring-opacity,1))}.focus-visible\:ring-white:focus-visible{--tw-ring-opacity:1;--tw-ring-color:rgb(255 255 255/var(--tw-ring-opacity,1))}.focus-visible\:ring-offset-2:focus-visible{--tw-ring-offset-width:2px}.focus-visible\:ring-offset-accent-subtle:focus-visible{--tw-ring-offset-color:#fbefd9}.focus-visible\:ring-offset-brand:focus-visible{--tw-ring-offset-color:#2e3a6b}.focus-visible\:ring-offset-cream:focus-visible{--tw-ring-offset-color:#faf6ee}.group:hover .group-hover\:scale-110{--tw-scale-x:1.1;--tw-scale-y:1.1;transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.group:hover .group-hover\:bg-graphite\/10{background-color:rgba(43,43,48,.1)}.peer:checked~.peer-checked\:border-brand{--tw-border-opacity:1;border-color:rgb(46 58 107/var(--tw-border-opacity,1))}.peer:checked~.peer-checked\:bg-brand{--tw-bg-opacity:1;background-color:rgb(46 58 107/var(--tw-bg-opacity,1))}.peer:checked~.peer-checked\:text-white{--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity,1))}@media (min-width:640px){.sm\:mx-0{margin-left:0;margin-right:0}.sm\:w-auto{width:auto}.sm\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.sm\:flex-row{flex-direction:row}.sm\:items-center{align-items:center}.sm\:p-8{padding:2rem}.sm\:px-10{padding-left:2.5rem;padding-right:2.5rem}.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}.sm\:py-16{padding-top:4rem;padding-bottom:4rem}.sm\:py-20{padding-top:5rem;padding-bottom:5rem}.sm\:py-24{padding-top:6rem;padding-bottom:6rem}.sm\:text-4xl{font-size:2.25rem;line-height:2.5rem}.sm\:text-5xl{font-size:3rem;line-height:1}.sm\:text-xl{font-size:1.25rem;line-height:1.75rem}}@media (min-width:768px){.md\:aspect-video{aspect-ratio:16/9}.md\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}}@media (min-width:1024px){.lg\:col-span-2{grid-column:span 2/span 2}.lg\:flex{display:flex}.lg\:hidden{display:none}.lg\:w-auto{width:auto}.lg\:flex-1{flex:1 1 0%}.lg\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.lg\:grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.lg\:grid-cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}.lg\:flex-row{flex-direction:row}.lg\:flex-nowrap{flex-wrap:nowrap}.lg\:items-center{align-items:center}.lg\:justify-between{justify-content:space-between}.lg\:gap-6{gap:1.5rem}.lg\:px-8{padding-left:2rem;padding-right:2rem}.lg\:pb-0{padding-bottom:0}.lg\:text-6xl{font-size:3.75rem;line-height:1}}</style>
+  </head>
+  <body class="bg-cream font-sans text-graphite antialiased">
+    <a
+      class="sr-only fixed left-4 top-4 z-50 rounded-card bg-white px-4 py-3 font-semibold text-brand shadow-lg focus:not-sr-only focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand"
+      href="#main"
+      >Перейти до основного вмісту</a
+    >
+
+    <header class="sticky top-0 z-40 border-b border-line bg-cream">
+      <div
+        class="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-x-6 px-4 py-2 sm:px-6 lg:flex-nowrap"
+      >
+        <a
+          href="#top"
+          class="flex min-h-11 items-center gap-2 rounded-card text-lg font-semibold transition hover:text-brand focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand"
+        >
+          <img
+            src="assets/images/logo-mark.svg"
+            alt=""
+            width="32"
+            height="32"
+            class="size-8"
+          />
+          <span>ReadSpace</span>
+        </a>
+
+        <button
+          type="button"
+          id="menu-toggle"
+          class="inline-flex size-11 items-center justify-center rounded-card transition hover:text-brand focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand lg:hidden"
+          aria-label="Відкрити меню"
+          aria-controls="main-menu"
+          aria-expanded="false"
+        >
+          <svg
+            class="size-6"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            aria-hidden="true"
+          >
+            <path stroke-linecap="round" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+
+        <div
+          id="main-menu"
+          class="hidden w-full flex-col gap-3 pb-3 lg:flex lg:w-auto lg:flex-1 lg:flex-row lg:items-center lg:justify-between lg:gap-6 lg:pb-0"
+        >
+          <nav aria-label="Головна навігація">
+            <ul class="flex flex-col gap-1 lg:flex-row lg:items-center">
+              <li>
+                <a
+                  href="#benefits"
+                  class="flex min-h-11 items-center rounded-card px-3 transition hover:text-brand focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand"
+                  >Переваги</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#how"
+                  class="flex min-h-11 items-center rounded-card px-3 transition hover:text-brand focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand"
+                  >Як це працює</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#matcher"
+                  class="flex min-h-11 items-center rounded-card px-3 transition hover:text-brand focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand"
+                  >Matcher</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#club"
+                  class="flex min-h-11 items-center rounded-card px-3 transition hover:text-brand focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand"
+                  >Книжковий клуб</a
+                >
+              </li>
+            </ul>
+          </nav>
+          <a
+            href="#cta"
+            class="inline-flex min-h-11 items-center justify-center rounded-card bg-accent px-5 font-semibold text-graphite transition hover:bg-accent-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-cream"
+            >Почати читати</a
+          >
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <section
+        id="top"
+        aria-labelledby="hero-title"
+        class="relative isolate overflow-hidden"
+      >
+        <picture class="absolute inset-0 -z-10">
+          <source
+            srcset="assets/images/hero-bg-480.webp 480w, assets/images/hero-bg-768.webp 768w, assets/images/hero-bg.webp 1376w"
+            sizes="100vw"
+            type="image/webp"
+          />
+          <img
+            src="assets/images/hero-bg.jpg"
+            alt=""
+            width="1376"
+            height="768"
+            fetchpriority="high"
+            class="size-full object-cover"
+          />
+        </picture>
+        <div class="absolute inset-0 -z-10 bg-graphite/65"></div>
+        <div
+          class="mx-auto flex max-w-7xl items-center px-4 py-16 sm:px-6 sm:py-24 lg:px-8"
+        >
+          <div class="max-w-3xl text-white">
+            <p
+              class="mb-5 inline-flex min-h-10 items-center gap-2 rounded-full bg-brand/90 px-4 text-sm font-medium backdrop-blur"
+            >
+              <svg class="icon text-accent" viewBox="0 0 576 512" focusable="false"
+                aria-hidden="true"><path d="M249.6 471.5c10.8 3.8 22.4-4.1 22.4-15.5l0-377.4c0-4.2-1.6-8.4-5-11C247.4 52 202.4 32 144 32C93.5 32 46.3 45.3 18.1 56.1C6.8 60.5 0 71.7 0 83.8L0 454.1c0 11.9 12.8 20.2 24.1 16.5C55.6 460.1 105.5 448 144 448c33.9 0 79 14 105.6 23.5zm76.8 0C353 462 398.1 448 432 448c38.5 0 88.4 12.1 119.9 22.6c11.3 3.8 24.1-4.6 24.1-16.5l0-370.3c0-12.1-6.8-23.3-18.1-27.6C529.7 45.3 482.5 32 432 32c-58.4 0-103.4 20-123 35.6c-3.3 2.6-5 6.8-5 11L304 456c0 11.4 11.7 19.3 22.4 15.5z" /></svg>
+              Твій простір для читання українською
+            </p>
+            <h1
+              id="hero-title"
+              class="text-4xl font-extrabold leading-tight sm:text-5xl lg:text-6xl"
+            >
+              Читай у власному ритмі
+            </h1>
+            <p
+              class="mt-5 max-w-2xl text-lg leading-relaxed text-white/90 sm:text-xl"
+            >
+              Знаходь свою наступну книгу. Керуй особистою бібліотекою,
+              відстежуй прогрес і добирай книжки за настроєм та вільним часом.
+            </p>
+            <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+              <a
+                href="#cta"
+                class="inline-flex min-h-11 w-full items-center justify-center rounded-card bg-accent px-6 text-center font-semibold text-graphite transition hover:bg-accent-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-brand sm:w-auto"
+                >Почати читати безкоштовно</a
+              >
+              <a
+                href="#how"
+                class="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-card border-2 border-cream px-6 font-semibold text-cream transition hover:bg-cream hover:text-graphite focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent sm:w-auto"
+              >
+                Як це працює
+                <svg class="icon" viewBox="0 0 448 512" focusable="false" aria-hidden="true"><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" /></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="benefits"
+        aria-labelledby="benefits-title"
+        class="px-4 py-16 sm:px-6 sm:py-20 lg:px-8"
+      >
+        <div class="mx-auto max-w-7xl">
+          <div class="mx-auto max-w-2xl text-center">
+            <p class="font-semibold uppercase tracking-wider text-brand">
+              ReadSpace
+            </p>
+            <h2
+              id="benefits-title"
+              class="mt-3 text-3xl font-bold text-graphite sm:text-4xl"
+            >
+              Чому читачі обирають ReadSpace
+            </h2>
+          </div>
+          <ul
+            class="mt-10 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3"
+          >
+            <li>
+              <article
+                class="h-full rounded-card border border-line bg-white p-6 shadow-sm transition duration-200 hover:-translate-y-1 hover:shadow-lg focus-within:ring-2 focus-within:ring-brand"
+              >
+                <span
+                  class="inline-flex size-14 items-center justify-center rounded-full bg-accent-subtle"
+                >
+                  <img
+                    src="assets/icons/icon-progress.svg"
+                    alt=""
+                    width="64"
+                    height="64"
+                    class="size-8"
+                  />
+                </span>
+                <h3 class="mt-5 text-xl font-semibold">Трекінг прогресу</h3>
+                <p class="mt-3 leading-relaxed text-muted">
+                  Сторінки, відсотки й річні челенджі — прогрес зберігається
+                  навіть офлайн.
+                </p>
+              </article>
+            </li>
+            <li>
+              <article
+                class="h-full rounded-card border border-line bg-white p-6 shadow-sm transition duration-200 hover:-translate-y-1 hover:shadow-lg focus-within:ring-2 focus-within:ring-brand"
+              >
+                <span
+                  class="inline-flex size-14 items-center justify-center rounded-full bg-accent-subtle"
+                >
+                  <img
+                    src="assets/icons/icon-matcher.svg"
+                    alt=""
+                    width="64"
+                    height="64"
+                    class="size-8"
+                  />
+                </span>
+                <h3 class="mt-5 text-xl font-semibold">ReadSpace Matcher</h3>
+                <p class="mt-3 leading-relaxed text-muted">
+                  Підбір наступної книги за настроєм і вільним часом.
+                </p>
+              </article>
+            </li>
+            <li>
+              <article
+                class="h-full rounded-card border border-line bg-white p-6 shadow-sm transition duration-200 hover:-translate-y-1 hover:shadow-lg focus-within:ring-2 focus-within:ring-brand"
+              >
+                <span
+                  class="inline-flex size-14 items-center justify-center rounded-full bg-accent-subtle"
+                >
+                  <img
+                    src="assets/icons/icon-privacy.svg"
+                    alt=""
+                    width="64"
+                    height="64"
+                    class="size-8"
+                  />
+                </span>
+                <h3 class="mt-5 text-xl font-semibold">Приватна бібліотека</h3>
+                <p class="mt-3 leading-relaxed text-muted">
+                  Ви вирішуєте, які книги й статуси бачать інші користувачі.
+                </p>
+              </article>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section
+        id="how"
+        aria-labelledby="how-title"
+        class="bg-white px-4 py-16 sm:px-6 sm:py-20 lg:px-8"
+      >
+        <div class="mx-auto max-w-7xl">
+          <div class="mx-auto max-w-2xl text-center">
+            <h2 id="how-title" class="text-3xl font-bold sm:text-4xl">
+              Як це працює
+            </h2>
+            <p class="mt-3 text-muted">
+              Почни з книги, а ReadSpace допоможе зберегти ритм читання.
+            </p>
+          </div>
+          <ol
+            class="mt-10 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3"
+          >
+            <li class="rounded-card border border-line bg-cream p-6">
+              <span
+                class="inline-flex size-11 items-center justify-center rounded-full bg-brand text-lg font-bold text-white"
+                aria-hidden="true"
+                >1</span
+              >
+              <h3 class="mt-4 text-lg font-semibold">Обери або знайди книгу</h3>
+              <p class="mt-2 leading-relaxed text-muted">
+                Каталог із фільтрами за жанром, автором і настроєм.
+              </p>
+            </li>
+            <li class="rounded-card border border-line bg-cream p-6">
+              <span
+                class="inline-flex size-11 items-center justify-center rounded-full bg-brand text-lg font-bold text-white"
+                aria-hidden="true"
+                >2</span
+              >
+              <h3 class="mt-4 text-lg font-semibold">
+                Фіксуй свій час і сторінки
+              </h3>
+              <p class="mt-2 leading-relaxed text-muted">
+                Прогрес зберігається автоматично, навіть якщо закрити вкладку.
+              </p>
+            </li>
+            <li class="rounded-card border border-line bg-cream p-6">
+              <span
+                class="inline-flex size-11 items-center justify-center rounded-full bg-brand text-lg font-bold text-white"
+                aria-hidden="true"
+                >3</span
+              >
+              <h3 class="mt-4 text-lg font-semibold">
+                Насолоджуйся у власному темпі
+              </h3>
+              <p class="mt-2 leading-relaxed text-muted">
+                Без змагань і тиску: статистика лише для вас.
+              </p>
+            </li>
+          </ol>
+          <div
+            class="mt-10 aspect-video w-full overflow-hidden rounded-card"
+          >
+            <!-- Медіа: YouTube-відео, адаптивне 16:9. Фасад: iframe підвантажується після кліку -->
+            <button
+              type="button"
+              class="group relative size-full focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-inset focus-visible:ring-accent"
+              data-youtube-id="eiqGTLtFoiw"
+              data-youtube-title="Відео: як читати більше книг"
+              aria-label="Відтворити відео «Як читати більше книг» (YouTube)"
+            >
+              <img
+                src="https://i.ytimg.com/vi/eiqGTLtFoiw/hqdefault.jpg"
+                alt=""
+                width="480"
+                height="360"
+                loading="lazy"
+                decoding="async"
+                class="size-full object-cover"
+              />
+              <span
+                class="absolute inset-0 flex items-center justify-center bg-graphite/30 transition group-hover:bg-graphite/10"
+                aria-hidden="true"
+              >
+                <span
+                  class="flex h-14 w-20 items-center justify-center rounded-xl2 bg-red-600 text-2xl text-white shadow-lg transition group-hover:scale-110"
+                  >▶</span
+                >
+              </span>
+            </button>
+          </div>
+          <div class="mt-8 text-center">
+            <a
+              href="#matcher"
+              class="inline-flex min-h-11 items-center justify-center gap-2 rounded-card px-5 font-semibold text-brand transition hover:bg-cream focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand"
+            >
+              Спробувати Matcher
+              <svg class="icon" viewBox="0 0 448 512" focusable="false" aria-hidden="true"><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" /></svg>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="matcher"
+        aria-labelledby="matcher-title"
+        class="bg-brand px-4 py-16 text-white sm:px-6 sm:py-20 lg:px-8"
+      >
+        <div class="mx-auto max-w-7xl">
+          <div class="mx-auto max-w-2xl text-center">
+            <p class="font-semibold uppercase tracking-wider text-accent">
+              ReadSpace Matcher
+            </p>
+            <h2 id="matcher-title" class="mt-3 text-3xl font-bold sm:text-4xl">
+              Яку книгу читати сьогодні?
+            </h2>
+            <p class="mt-4 leading-relaxed text-white/80">
+              Обери настрій і вільний час — і знайди історію для свого вечора.
+            </p>
+          </div>
+          <div
+            class="mt-10 grid grid-cols-1 gap-8 rounded-xl2 bg-white p-5 text-graphite shadow-xl sm:p-8 lg:grid-cols-2 lg:items-center"
+          >
+            <form aria-label="Параметри підбору книги" class="space-y-7">
+              <fieldset>
+                <legend class="mb-3 font-semibold">Який у вас настрій?</legend>
+                <div class="flex flex-wrap gap-2">
+                  <label
+                    class="inline-flex cursor-pointer rounded-full focus-within:ring-2 focus-within:ring-brand"
+                  >
+                    <input
+                      class="peer sr-only"
+                      type="radio"
+                      name="mood"
+                      value="cozy"
+                      checked
+                    />
+                    <span class="inline-flex min-h-11 items-center rounded-full border border-line px-4 peer-checked:border-brand peer-checked:bg-brand peer-checked:text-white">Затишний</span>
+                  </label>
+                  <label
+                    class="inline-flex cursor-pointer rounded-full focus-within:ring-2 focus-within:ring-brand"
+                  >
+                    <input
+                      class="peer sr-only"
+                      type="radio"
+                      name="mood"
+                      value="smart"
+                    />
+                    <span class="inline-flex min-h-11 items-center rounded-full border border-line px-4 peer-checked:border-brand peer-checked:bg-brand peer-checked:text-white">Інтелектуальний</span>
+                  </label>
+                  <label
+                    class="inline-flex cursor-pointer rounded-full focus-within:ring-2 focus-within:ring-brand"
+                  >
+                    <input
+                      class="peer sr-only"
+                      type="radio"
+                      name="mood"
+                      value="dynamic"
+                    />
+                    <span class="inline-flex min-h-11 items-center rounded-full border border-line px-4 peer-checked:border-brand peer-checked:bg-brand peer-checked:text-white">Динамічний</span>
+                  </label>
+                  <label
+                    class="inline-flex cursor-pointer rounded-full focus-within:ring-2 focus-within:ring-brand"
+                  >
+                    <input
+                      class="peer sr-only"
+                      type="radio"
+                      name="mood"
+                      value="inspiring"
+                    />
+                    <span class="inline-flex min-h-11 items-center rounded-full border border-line px-4 peer-checked:border-brand peer-checked:bg-brand peer-checked:text-white">Надихаючий</span>
+                  </label>
+                </div>
+              </fieldset>
+              <fieldset>
+                <legend class="mb-3 font-semibold">Скільки є часу?</legend>
+                <div class="flex flex-wrap gap-2">
+                  <label
+                    class="inline-flex cursor-pointer rounded-full focus-within:ring-2 focus-within:ring-brand"
+                  >
+                    <input
+                      class="peer sr-only"
+                      type="radio"
+                      name="time"
+                      value="15"
+                    />
+                    <span class="inline-flex min-h-11 items-center rounded-full border border-line px-4 peer-checked:border-brand peer-checked:bg-brand peer-checked:text-white">15 хв</span>
+                  </label>
+                  <label
+                    class="inline-flex cursor-pointer rounded-full focus-within:ring-2 focus-within:ring-brand"
+                  >
+                    <input
+                      class="peer sr-only"
+                      type="radio"
+                      name="time"
+                      value="30"
+                      checked
+                    />
+                    <span class="inline-flex min-h-11 items-center rounded-full border border-line px-4 peer-checked:border-brand peer-checked:bg-brand peer-checked:text-white">30 хв</span>
+                  </label>
+                  <label
+                    class="inline-flex cursor-pointer rounded-full focus-within:ring-2 focus-within:ring-brand"
+                  >
+                    <input
+                      class="peer sr-only"
+                      type="radio"
+                      name="time"
+                      value="60"
+                    />
+                    <span class="inline-flex min-h-11 items-center rounded-full border border-line px-4 peer-checked:border-brand peer-checked:bg-brand peer-checked:text-white">1 год</span>
+                  </label>
+                  <label
+                    class="inline-flex cursor-pointer rounded-full focus-within:ring-2 focus-within:ring-brand"
+                  >
+                    <input
+                      class="peer sr-only"
+                      type="radio"
+                      name="time"
+                      value="120"
+                    />
+                    <span class="inline-flex min-h-11 items-center rounded-full border border-line px-4 peer-checked:border-brand peer-checked:bg-brand peer-checked:text-white">2+ год</span>
+                  </label>
+                </div>
+              </fieldset>
+              <button
+                type="button"
+                class="inline-flex min-h-11 items-center justify-center gap-2 rounded-card bg-brand px-5 font-semibold text-white transition hover:bg-brand-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2"
+              >
+                <svg class="icon" viewBox="0 0 576 512" focusable="false"
+                  aria-hidden="true"><path d="M234.7 42.7L197 56.8c-3 1.1-5 4-5 7.2s2 6.1 5 7.2l37.7 14.1L248.8 123c1.1 3 4 5 7.2 5s6.1-2 7.2-5l14.1-37.7L315 71.2c3-1.1 5-4 5-7.2s-2-6.1-5-7.2L277.3 42.7 263.2 5c-1.1-3-4-5-7.2-5s-6.1 2-7.2 5L234.7 42.7zM46.1 395.4c-18.7 18.7-18.7 49.1 0 67.9l34.6 34.6c18.7 18.7 49.1 18.7 67.9 0L529.9 116.5c18.7-18.7 18.7-49.1 0-67.9L495.3 14.1c-18.7-18.7-49.1-18.7-67.9 0L46.1 395.4zM484.6 82.6l-105 105-23.3-23.3 105-105 23.3 23.3zM7.5 117.2C3 118.9 0 123.2 0 128s3 9.1 7.5 10.8L64 160l21.2 56.5c1.7 4.5 6 7.5 10.8 7.5s9.1-3 10.8-7.5L128 160l56.5-21.2c4.5-1.7 7.5-6 7.5-10.8s-3-9.1-7.5-10.8L128 96 106.8 39.5C105.1 35 100.8 32 96 32s-9.1 3-10.8 7.5L64 96 7.5 117.2zm352 256c-4.5 1.7-7.5 6-7.5 10.8s3 9.1 7.5 10.8L416 416l21.2 56.5c1.7 4.5 6 7.5 10.8 7.5s9.1-3 10.8-7.5L480 416l56.5-21.2c4.5-1.7 7.5-6 7.5-10.8s-3-9.1-7.5-10.8L480 352l-21.2-56.5c-1.7-4.5-6-7.5-10.8-7.5s-9.1 3-10.8 7.5L416 352l-56.5 21.2z" /></svg>
+                Підібрати книгу
+              </button>
+            </form>
+            <article
+              class="flex flex-col gap-5 rounded-card border border-line bg-cream p-5 sm:flex-row sm:items-center"
+            >
+              <img
+                src="assets/images/cover-tini.webp"
+                alt="Обкладинка книги «Тіні забутих предків»"
+                width="132"
+                height="184"
+                loading="lazy"
+                class="mx-auto w-32 rounded-card object-cover sm:mx-0"
+              />
+              <div>
+                <p class="font-semibold text-brand">Рекомендація Matcher</p>
+                <h3 class="mt-2 text-xl font-bold">Тіні забутих предків</h3>
+                <p class="mt-2 leading-relaxed text-muted">
+                  Книга для затишного настрою та часу на читання.
+                </p>
+                <a
+                  href="#cta"
+                  class="mt-4 inline-flex min-h-11 items-center justify-center rounded-card bg-accent px-5 font-semibold text-graphite transition hover:bg-accent-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand"
+                  >Почати читати</a
+                >
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="reviews"
+        aria-labelledby="reviews-title"
+        class="px-4 py-16 sm:px-6 sm:py-20 lg:px-8"
+      >
+        <div class="mx-auto max-w-7xl">
+          <div class="mx-auto max-w-2xl text-center">
+            <h2 id="reviews-title" class="text-3xl font-bold sm:text-4xl">
+              Відгуки читачів
+            </h2>
+          </div>
+          <ul
+            class="mt-10 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3"
+          >
+            <li>
+              <figure
+                class="h-full rounded-card border border-line bg-white p-6 shadow-sm"
+              >
+                <p class="text-lg tracking-wider text-brand">
+                  <span aria-hidden="true">★★★★★</span>
+                  <span class="sr-only">Оцінка: 5 з 5</span>
+                </p>
+                <blockquote class="mt-4 leading-relaxed text-graphite">
+                  «Нарешті прогрес не зникає: бачу зелений індикатор — і
+                  спокійно читаю далі.»
+                </blockquote>
+                <figcaption class="mt-6 flex items-center gap-3">
+                  <img
+                    src="assets/images/avatar-olena.webp"
+                    alt=""
+                    width="56"
+                    height="56"
+                    loading="lazy"
+                    class="size-14 rounded-full object-cover"
+                  />
+                  <span>
+                    <cite class="block not-italic font-semibold">Олена К.</cite>
+                    <span class="text-sm text-muted">Читає щовечора</span>
+                  </span>
+                </figcaption>
+              </figure>
+            </li>
+            <li>
+              <figure
+                class="h-full rounded-card border border-line bg-white p-6 shadow-sm"
+              >
+                <p class="text-lg tracking-wider text-brand">
+                  <span aria-hidden="true">★★★★★</span>
+                  <span class="sr-only">Оцінка: 5 з 5</span>
+                </p>
+                <blockquote class="mt-4 leading-relaxed text-graphite">
+                  «Matcher знайшов книгу на 30 хвилин за настроєм — рівно те, що
+                  треба було ввечері.»
+                </blockquote>
+                <figcaption class="mt-6 flex items-center gap-3">
+                  <img
+                    src="assets/images/avatar-andrii.webp"
+                    alt=""
+                    width="56"
+                    height="56"
+                    loading="lazy"
+                    class="size-14 rounded-full object-cover"
+                  />
+                  <span>
+                    <cite class="block not-italic font-semibold"
+                      >Андрій М.</cite
+                    >
+                    <span class="text-sm text-muted">Читає щодня</span>
+                  </span>
+                </figcaption>
+              </figure>
+            </li>
+            <li>
+              <figure
+                class="h-full rounded-card border border-line bg-white p-6 shadow-sm"
+              >
+                <p class="text-lg tracking-wider text-brand">
+                  <span aria-hidden="true">★★★★★</span>
+                  <span class="sr-only">Оцінка: 5 з 5</span>
+                </p>
+                <blockquote class="mt-4 leading-relaxed text-graphite">
+                  «Подобається, що можна закрити полицю від сторонніх і
+                  поставити книгу на паузу.»
+                </blockquote>
+                <figcaption class="mt-6 flex items-center gap-3">
+                  <img
+                    src="assets/images/avatar-maria.webp"
+                    alt=""
+                    width="56"
+                    height="56"
+                    loading="lazy"
+                    class="size-14 rounded-full object-cover"
+                  />
+                  <span>
+                    <cite class="block not-italic font-semibold">Марія Л.</cite>
+                    <span class="text-sm text-muted">Любить фентезі</span>
+                  </span>
+                </figcaption>
+              </figure>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section
+        id="club"
+        aria-labelledby="club-title"
+        class="bg-white px-4 py-16 sm:px-6 sm:py-20 lg:px-8"
+      >
+        <div class="mx-auto max-w-7xl">
+          <div class="mx-auto max-w-2xl text-center">
+            <p class="font-semibold uppercase tracking-wider text-brand">
+              Читаємо разом
+            </p>
+            <h2 id="club-title" class="mt-3 text-3xl font-bold sm:text-4xl">
+              Читацький клуб у Львові
+            </h2>
+            <p class="mt-4 leading-relaxed text-muted">
+              Зустрічайся з читачами, обговорюй улюблені історії та відкривай
+              нові книжки.
+            </p>
+          </div>
+          <div class="mt-10 grid grid-cols-1 gap-6 lg:grid-cols-3">
+            <div
+              class="aspect-square w-full overflow-hidden rounded-card md:aspect-video lg:col-span-2"
+            >
+              <!-- Медіа: Google Maps, адаптивний контейнер; src підставляється, коли блок наближається до екрана -->
+              <iframe
+                class="size-full border-0"
+                data-src="https://www.google.com/maps?q=Наукова+бібліотека+ЛНУ+імені+Івана+Франка,+Львів,+вул.+Драгоманова+5&amp;output=embed"
+                title="Карта: місце зустрічей читацького клубу ReadSpace у Львові"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+            <aside
+              aria-labelledby="club-aside-title"
+              class="flex flex-col items-start rounded-xl2 bg-cream p-6 sm:p-8"
+            >
+              <span
+                class="inline-flex size-12 items-center justify-center rounded-full bg-brand text-xl text-white"
+                aria-hidden="true"
+              >
+                <svg class="icon" viewBox="0 0 576 512" focusable="false" aria-hidden="true"><path d="M249.6 471.5c10.8 3.8 22.4-4.1 22.4-15.5l0-377.4c0-4.2-1.6-8.4-5-11C247.4 52 202.4 32 144 32C93.5 32 46.3 45.3 18.1 56.1C6.8 60.5 0 71.7 0 83.8L0 454.1c0 11.9 12.8 20.2 24.1 16.5C55.6 460.1 105.5 448 144 448c33.9 0 79 14 105.6 23.5zm76.8 0C353 462 398.1 448 432 448c38.5 0 88.4 12.1 119.9 22.6c11.3 3.8 24.1-4.6 24.1-16.5l0-370.3c0-12.1-6.8-23.3-18.1-27.6C529.7 45.3 482.5 32 432 32c-58.4 0-103.4 20-123 35.6c-3.3 2.6-5 6.8-5 11L304 456c0 11.4 11.7 19.3 22.4 15.5z" /></svg>
+              </span>
+              <h3 id="club-aside-title" class="mt-5 text-xl font-semibold">
+                Твоя наступна читацька зустріч
+              </h3>
+              <p class="mt-3 leading-relaxed text-muted">
+                Долучайся до спільноти ReadSpace у Львові. Будемо раді читачам
+                із будь-яким жанровим настроєм.
+              </p>
+              <p class="mt-6 font-semibold">Погода перед зустріччю</p>
+              <!-- Медіа: JS-інформер погоди; скрипт (async) підключається, коли блок наближається до екрана -->
+              <a
+                class="weatherwidget-io mt-3 inline-flex min-h-11 w-full items-center rounded-card focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand"
+                href="https://forecast7.com/uk/49d8424d03/lviv/"
+                data-label_1="ЛЬВІВ"
+                data-label_2="ПОГОДА"
+                data-theme="pure"
+                >Погода у Львові</a
+              >
+              <a
+                href="mailto:hello@readspace.ua?subject=Читацький%20клуб"
+                class="mt-6 inline-flex min-h-11 w-full items-center justify-center rounded-card bg-accent px-5 text-center font-semibold text-graphite transition hover:bg-accent-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand sm:w-auto"
+                >Прийти на зустріч</a
+              >
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="cta"
+        aria-labelledby="cta-title"
+        class="px-4 py-16 sm:px-6 sm:py-20 lg:px-8"
+      >
+        <div
+          class="mx-auto max-w-5xl rounded-xl2 bg-accent-subtle px-5 py-12 text-center sm:px-10 sm:py-16"
+        >
+          <h2 id="cta-title" class="text-3xl font-bold sm:text-4xl">
+            Зроби читання своєю звичкою
+          </h2>
+          <p class="mx-auto mt-4 max-w-2xl leading-relaxed text-muted">
+            Створи власну полицю, збережи улюблені книжки та читай у своєму
+            темпі.
+          </p>
+          <a
+            href="#matcher"
+            class="mt-7 inline-flex min-h-12 items-center justify-center rounded-card bg-brand px-6 text-center font-semibold text-white transition hover:bg-brand-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-accent-subtle"
+            >Створити полицю</a
+          >
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-brand text-cream">
+      <div class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          <div>
+            <a
+              href="#top"
+              class="inline-flex min-h-11 items-center gap-2 rounded-card text-lg font-semibold transition hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+            >
+              <img
+                src="assets/images/logo-mark.svg"
+                alt=""
+                width="32"
+                height="32"
+                class="size-10 rounded-card bg-cream p-1"
+              />
+              <span>ReadSpace</span>
+            </a>
+            <p class="mt-3 text-sm leading-relaxed text-cream/80">
+              Український книжковий трекер: полиці, челенджі та добірки книг за
+              настроєм.
+            </p>
+          </div>
+
+          <nav aria-label="Навігація у футері">
+            <h2 class="mb-2 font-semibold">Розділи</h2>
+            <ul class="flex flex-col">
+              <li>
+                <a
+                  href="#benefits"
+                  class="inline-flex min-h-11 items-center rounded-card text-cream/80 transition hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+                  >Переваги</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#how"
+                  class="inline-flex min-h-11 items-center rounded-card text-cream/80 transition hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+                  >Як це працює</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#matcher"
+                  class="inline-flex min-h-11 items-center rounded-card text-cream/80 transition hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+                  >Matcher</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#reviews"
+                  class="inline-flex min-h-11 items-center rounded-card text-cream/80 transition hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+                  >Відгуки</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#club"
+                  class="inline-flex min-h-11 items-center rounded-card text-cream/80 transition hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+                  >Читацький клуб</a
+                >
+              </li>
+            </ul>
+          </nav>
+
+          <div>
+            <h2 class="mb-2 font-semibold">Контакти</h2>
+            <address class="flex flex-col not-italic text-cream/80">
+              <a
+                href="mailto:hello@readspace.ua"
+                class="inline-flex min-h-11 items-center self-start rounded-card transition hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+                >hello@readspace.ua</a
+              >
+              <a
+                href="tel:+380320000000"
+                class="inline-flex min-h-11 items-center self-start rounded-card transition hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+                >+38 (032) 000-00-00</a
+              >
+              <span class="inline-flex min-h-11 items-center"
+                >м. Львів, Україна</span
+              >
+            </address>
+          </div>
+
+          <div>
+            <h2 class="mb-2 font-semibold">Ми в соцмережах</h2>
+            <ul class="flex flex-wrap gap-2">
+              <li>
+                <a
+                  href="https://instagram.com/readspace"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Instagram"
+                  class="inline-flex size-11 items-center justify-center rounded-card text-cream/80 transition hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+                >
+                  <svg class="icon text-xl" viewBox="0 0 448 512" focusable="false"
+                    aria-hidden="true"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" /></svg>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://t.me/readspace"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Telegram"
+                  class="inline-flex size-11 items-center justify-center rounded-card text-cream/80 transition hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+                >
+                  <svg class="icon text-xl" viewBox="0 0 496 512" focusable="false"
+                    aria-hidden="true"><path d="M248,8C111.033,8,0,119.033,0,256S111.033,504,248,504,496,392.967,496,256,384.967,8,248,8ZM362.952,176.66c-3.732,39.215-19.881,134.378-28.1,178.3-3.476,18.584-10.322,24.816-16.948,25.425-14.4,1.326-25.338-9.517-39.287-18.661-21.827-14.308-34.158-23.215-55.346-37.177-24.485-16.135-8.612-25,5.342-39.5,3.652-3.793,67.107-61.51,68.335-66.746.153-.655.3-3.1-1.154-4.384s-3.59-.849-5.135-.5q-3.283.746-104.608,69.142-14.845,10.194-26.894,9.934c-8.855-.191-25.888-5.006-38.551-9.123-15.531-5.048-27.875-7.717-26.8-16.291q.84-6.7,18.45-13.7,108.446-47.248,144.628-62.3c68.872-28.647,83.183-33.623,92.511-33.789,2.052-.034,6.639.474,9.61,2.885a10.452,10.452,0,0,1,3.53,6.716A43.765,43.765,0,0,1,362.952,176.66Z" /></svg>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://facebook.com/readspace"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Facebook"
+                  class="inline-flex size-11 items-center justify-center rounded-card text-cream/80 transition hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+                >
+                  <svg class="icon text-xl" viewBox="0 0 512 512" focusable="false"
+                    aria-hidden="true"><path d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256C0 376 82.7 476.8 194.2 504.5V334.2H141.4V256h52.8V222.3c0-87.1 39.4-127.5 125-127.5c16.2 0 44.2 3.2 55.7 6.4V172c-6-.6-16.5-1-29.6-1c-42 0-58.2 15.9-58.2 57.2V256h83.6l-14.4 78.2H287V510.1C413.8 494.8 512 386.9 512 256h0z" /></svg>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://youtube.com/@readspace"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="YouTube"
+                  class="inline-flex size-11 items-center justify-center rounded-card text-cream/80 transition hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+                >
+                  <svg class="icon text-xl" viewBox="0 0 576 512" focusable="false"
+                    aria-hidden="true"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z" /></svg>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="mt-10 border-t border-cream/20 pt-6 text-sm text-cream/70">
+          © ReadSpace. Читай у власному ритмі.
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const menuToggle = document.getElementById("menu-toggle");
+      const mainMenu = document.getElementById("main-menu");
+
+      menuToggle.addEventListener("click", () => {
+        const isExpanded = menuToggle.getAttribute("aria-expanded") === "true";
+        menuToggle.setAttribute("aria-expanded", String(!isExpanded));
+        menuToggle.setAttribute(
+          "aria-label",
+          isExpanded ? "Відкрити меню" : "Закрити меню",
+        );
+        mainMenu.classList.toggle("hidden", isExpanded);
+        mainMenu.classList.toggle("flex", !isExpanded);
+      });
+
+      mainMenu.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          menuToggle.setAttribute("aria-expanded", "false");
+          menuToggle.setAttribute("aria-label", "Відкрити меню");
+          mainMenu.classList.add("hidden");
+          mainMenu.classList.remove("flex");
+        });
+      });
+      // Медіа: YouTube-фасад — iframe створюється лише після кліку
+      document.querySelectorAll("[data-youtube-id]").forEach((button) => {
+        button.addEventListener("click", () => {
+          const iframe = document.createElement("iframe");
+          iframe.className = "size-full";
+          iframe.src = `https://www.youtube-nocookie.com/embed/${button.dataset.youtubeId}?autoplay=1`;
+          iframe.title = button.dataset.youtubeTitle;
+          iframe.allow = "autoplay; encrypted-media; picture-in-picture; fullscreen";
+          iframe.allowFullscreen = true;
+          iframe.referrerPolicy = "strict-origin-when-cross-origin";
+          button.replaceWith(iframe);
+          iframe.focus();
+        });
+      });
+
+      // Медіа: карта і інформер погоди вантажаться, коли секція клубу близько до екрана
+      const club = document.getElementById("club");
+      const loadClubMedia = () => {
+        club.querySelectorAll("iframe[data-src]").forEach((frame) => {
+          frame.src = frame.dataset.src;
+          frame.removeAttribute("data-src");
+        });
+        const widget = document.createElement("script");
+        widget.src = "https://weatherwidget.io/js/widget.min.js";
+        widget.async = true;
+        document.body.append(widget);
+      };
+      if ("IntersectionObserver" in window) {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            if (entries.some((entry) => entry.isIntersecting)) {
+              observer.disconnect();
+              loadClubMedia();
+            }
+          },
+          { rootMargin: "300px 0px" },
+        );
+        observer.observe(club);
+      } else {
+        loadClubMedia();
+      }
+    </script>
+  </body>
+</html>
