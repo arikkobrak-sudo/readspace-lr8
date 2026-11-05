@@ -9,3 +9,16 @@
 ## Публікація
 
 Для GitHub Pages використовується корінь гілки `main`. Для Netlify каталог публікації — корінь репозиторію, команда збирання не потрібна.
+
+## Технології
+
+HTML5, CSS3 (Tailwind CSS), JavaScript.
+
+## Демо
+
+- GitHub Pages: https://arikkobrak-sudo.github.io/readspace-lr8/
+- Netlify: https://jade-panda-d4a0d7.netlify.app/
+
+## Автор
+
+Кобрак Ярослав, група ПП-24.
